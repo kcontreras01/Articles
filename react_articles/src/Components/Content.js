@@ -4,8 +4,7 @@ import AccountPage from './AccountPage';
 import AddPage from './AddPage';
 import EditPage from './EditPage';
 import axios from 'axios';
-const CLIENT_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=';
-const API_KEY = '478459a9f081402c9c61549cdeacfd71';
+
 
 class Content extends Component {
 	constructor(props) {
@@ -76,14 +75,16 @@ class Content extends Component {
 
 	onSubmit(event) {
 		event.preventDefault();
+		console.log('the state value is: ', this.state.value)
 		this.setState({
 			mode: 'displayResults'
 		});
 
-		axios.get(`http://localhost:8080/articles/`).then(res => {
-			// console.log("res.data", res.data);
+		axios.get(`http://localhost:8080/articles/${this.state.value}`).then(response => {
+			// console.log(this.state.value)
+			console.log("res.data", response);
 			this.setState({
-				results: res.data,
+				results: response.data,
 				// value: ''
 			})
 		})
@@ -98,7 +99,7 @@ class Content extends Component {
   }
 
   sendSaved(savedData){
-  	// console.log('the savedData is: ', savedData)
+  	console.log('the savedData is: ', savedData)
     this.setState({
     	saved: [...this.state.saved, savedData], mode: 'displaySaved',
     })

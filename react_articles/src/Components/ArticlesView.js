@@ -31,6 +31,7 @@ class ArticlesView extends Component {
 
    getResults() {
     return (
+      // console.log('the props are: ', this.props),
       this.props.dataSearch.map( e => {
         return (
          // console.log('this is e: ', e.web_url),
