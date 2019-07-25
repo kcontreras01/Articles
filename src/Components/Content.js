@@ -61,7 +61,7 @@ class Content extends Component {
 	handleChange(event) {
 		event.preventDefault();
 		this.setState({
-			value: event.target.value
+			value: event.target.value,
 		})
 	}
 
@@ -69,25 +69,28 @@ class Content extends Component {
 		event.preventDefault();
 		this.setState({
 			mode: 'displayForm',
-			value: ""
 		});
 	}
 
 	onSubmit(event) {
 		event.preventDefault();
-		console.log('the state value is: ', this.state.value)
+
 		this.setState({
-			mode: 'displayResults'
+			mode: 'displayResults',
 		});
 
+		// console.log('the state value is: ', this.state.value)
+		
 		axios.get(`http://localhost:8080/articles/${this.state.value}`).then(response => {
 			// console.log(this.state.value)
-			console.log("res.data", response);
+			// console.log("res.data", response);
 			this.setState({
 				results: response.data,
 				// value: ''
 			})
 		})
+
+		
 	};
 
   changeMode(mode, current = false){
@@ -119,10 +122,11 @@ class Content extends Component {
 
 	goToSearch(){
 		this.setState({
-			mode: 'displayForm'
+			mode: 'displayForm',
+			value: '',
 		})
 	} 
-	
+
 	goToEdit(id){
 		// console.log('in gotoedit')
 		this.setState({
@@ -131,69 +135,69 @@ class Content extends Component {
 		this.editingComponent(id);
 	} 
 
-	render(){
-		return(
-			<div>
-				<nav>
-					<ul>
-						<li>
-							Articles
-						</li>
-						<li>			
-						</li>
-						<li>			
-							<button className="navButton" onClick={this.goToSearch}>SEARCH</button>
-						</li>								
-						<li>			
-							<button className="navButton" onClick={this.goToNewArticle}>CREATE</button>
-						</li>						
-						<li>
-       				<button className="navButton" onClick={this.props.logout}>LOG OUT</button>
-						</li>
-					</ul>
-				</nav>
+render(){
+	return(
+		<div>
+			<nav>
+				<ul>
+					<li>
+						Articles
+					</li>
+					<li>			
+					</li>
+					<li>			
+						<button className="navButton" onClick={this.goToSearch}>SEARCH</button>
+					</li>								
+					<li>			
+						<button className="navButton" onClick={this.goToNewArticle}>CREATE</button>
+					</li>						
+					<li>
+   				<button className="navButton" onClick={this.props.logout}>LOG OUT</button>
+					</li>
+				</ul>
+			</nav>
 
-				{this.state.mode === 'displayForm' && (
-					<div>
-						<form className="searchForm" onSubmit={this.onSubmit}>
-							<input
-								type="text"
-								placeholder="ARTICLE KEYWORDS"
-								value={this.state.value}
-								onChange={this.handleChange}
-								className="searchFormBar"
-							/>
-							<br />
-							<input className="searchButton" type="submit" value="SEARCH" />
-						</form>
-					</div>
-				)}
+			{this.state.mode === 'displayForm' && (
+				<div>
+					<form className="searchForm" onSubmit={this.onSubmit}>
+						<input
+							type="text"
+							placeholder="ARTICLE KEYWORDS"
+							value={this.state.value}
+							onChange={this.handleChange}
+							className="searchFormBar"
+						/>
+						<br />
+						<input className="searchButton" type="submit" value="SEARCH" />
+					</form>
+				</div>
+			)}
 
-				{this.state.mode === 'displayResults' && (
-					<div>
-						<ArticlesView sendSaved={this.sendSaved} dataSearch={this.state.results} />
-					</div>
-				)}
+			{this.state.mode === 'displayResults' && (
+				<div>
+					<ArticlesView sendSaved={this.sendSaved} dataSearch={this.state.results} />
+				</div>
+			)}
 
-				{this.state.mode === 'displaySaved' && (
-					<div>
-						<AccountPage deleteFunc={this.mountingComponent} dataSearch={this.state.saved} editFunc={this.goToEdit}/>
-					</div>
-				)}	
+			{this.state.mode === 'displaySaved' && (
+				<div>
+					<AccountPage deleteFunc={this.mountingComponent} dataSearch={this.state.saved} editFunc={this.goToEdit}/>
+				</div>
+			)}	
 
-				{this.state.mode === 'displayNew' && (
-					<div>
-						<AddPage addFunc={this.mountingComponent} sendSaved={this.sendSaved}/>
-					</div>
-				)}	
+			{this.state.mode === 'displayNew' && (
+				<div>
+					<AddPage addFunc={this.mountingComponent} sendSaved={this.sendSaved}/>
+				</div>
+			)}	
 
-				{this.state.mode === 'displayEdit' && (
-					<div>
-						<EditPage editArr={this.state.results} sendSaved={this.sendSaved}/>
-					</div>
-				)}												
-			</div>
-			)
+			{this.state.mode === 'displayEdit' && (
+				<div>
+					<EditPage editArr={this.state.results} sendSaved={this.sendSaved}/>
+				</div>
+			)}												
+		</div>
+		)
 	}
 
 }
