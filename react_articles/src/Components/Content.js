@@ -213,7 +213,13 @@ class Content extends Component {
           <div>
             <EditPage editArr={this.state.results} sendSaved={this.sendSaved} />
           </div>
-		)} */}
+		)} */
+	
+	
+	
+	
+	
+	}
       </div>
     );
   }
