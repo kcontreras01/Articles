@@ -37,12 +37,12 @@ class Content extends Component {
 	}
 
 	mountingComponent(){
-		axios.get(`http://localhost:8080/articles/save/${this.props.user.id}`)
-		.then(res => {
-			this.setState({
-				saved: res.data
-			})
-		})		
+		// axios.get(`http://localhost:8080/articles/save/${this.props.user.id}`)
+		// .then(res => {
+		// 	this.setState({
+		// 		saved: res.data
+		// 	})
+		// })		
 	}
 
 
@@ -140,7 +140,7 @@ class Content extends Component {
 							Articles
 						</li>
 						<li>			
-							<button className="navButton" onClick={this.goToAccount}>{this.props.user.first_name}'s SAVED ARTICLES</button>
+						{/*	<button className="navButton" onClick={this.goToAccount}>{this.props.user.first_name}'s SAVED ARTICLES</button> */}
 						</li>
 						<li>			
 							<button className="navButton" onClick={this.goToSearch}>SEARCH</button>
