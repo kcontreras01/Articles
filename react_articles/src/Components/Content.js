@@ -18,18 +18,8 @@ class Content extends Component {
       user: false,
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.changeMode = this.changeMode.bind(this);
-    this.sendSaved = this.sendSaved.bind(this);
-    this.goToAccount = this.goToAccount.bind(this);
-    this.mountingComponent = this.mountingComponent.bind(this);
-    this.editingComponent = this.editingComponent.bind(this);
-    this.goToNewArticle = this.goToNewArticle.bind(this);
-    this.goToSearch = this.goToSearch.bind(this);
-    this.goToEdit = this.goToEdit.bind(this);
+    // this.mountingComponent = this.mountingComponent.bind(this);
   }
-
   componentDidMount() {
     this.mountingComponent();
   }
@@ -43,7 +33,7 @@ class Content extends Component {
     // })
   }
 
-  editingComponent(id) {
+  editingComponent = (id) => {
     // console.log('in editcomponent')
     axios.get(`http://localhost:8080/articles/edit/${id}`).then((res) => {
       // console.log('the editing data is: ', res)
@@ -60,7 +50,7 @@ class Content extends Component {
     });
   }
 
-  onClick(event) {
+  onClick = (event) => {
     event.preventDefault();
     this.setState({
       mode: "displayForm",
@@ -88,7 +78,7 @@ class Content extends Component {
       });
   }
 
-  changeMode(mode, current = false) {
+  changeMode = (mode, current = false) => {
     this.setState((prev) => {
       prev.mode = mode;
       prev.current = current;
@@ -96,7 +86,7 @@ class Content extends Component {
     });
   }
 
-  sendSaved(savedData) {
+  sendSaved = (savedData) => {
     console.log("the savedData is: ", savedData);
     this.setState({
       saved: [...this.state.saved, savedData],
@@ -104,25 +94,25 @@ class Content extends Component {
     });
   }
 
-  goToAccount() {
+  goToAccount = () => {
     this.setState({
       mode: "displaySaved",
     });
   }
 
-  goToNewArticle() {
+  goToNewArticle = () =>{
     this.setState({
       mode: "displayNew",
     });
   }
 
-  goToSearch() {
+  goToSearch = () => {
     this.setState({
       mode: "displayForm",
     });
   }
 
-  goToEdit(id) {
+  goToEdit = (id) => {
     // console.log('in gotoedit')
     this.setState({
       mode: "displayEdit",
@@ -185,7 +175,7 @@ class Content extends Component {
             <ArticlesView
             //   userId={this.props.user.id}
             //   sendSaved={this.sendSaved}
-              dataSearch={this.state.results}
+			  allArticlesFound={this.state.results}
             />
           </div>
         )}
