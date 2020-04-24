@@ -3,7 +3,9 @@ import ArticlesView from "./ArticlesView";
 import AccountPage from "./AccountPage";
 import AddPage from "./AddPage";
 import EditPage from "./EditPage";
+import Nav from './Nav';
 import axios from "axios";
+import Searchbar from './Searchbar';
 
 class Content extends Component {
   constructor(props) {
@@ -12,8 +14,7 @@ class Content extends Component {
     this.state = {
       mode: "displayForm",
       current: false,
-      value: "",
-      results: [],
+      searchResults: [],
       saved: [],
       user: false,
     };
@@ -38,15 +39,8 @@ class Content extends Component {
     axios.get(`http://localhost:8080/articles/edit/${id}`).then((res) => {
       // console.log('the editing data is: ', res)
       this.setState({
-        results: res.data,
+        searchResults: res.data,
       });
-    });
-  }
-
-  handleChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      value: event.target.value,
     });
   }
 
@@ -58,26 +52,6 @@ class Content extends Component {
     });
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    console.log("the state value is: ", this.state.value);
-    this.setState({
-      mode: "displayResults",
-    });
-
-	// fetch(`http://localhost:8080/articles/${this.state.value}`)
-    axios
-      .get(`http://localhost:8080/articles/${this.state.value}`)
-      .then((response) => {
-        // console.log(this.state.value)
-        console.log("res.data", response);
-        this.setState({
-          results: response.data,
-          // value: ''
-        });
-      });
-  }
-
   changeMode = (mode, current = false) => {
     this.setState((prev) => {
       prev.mode = mode;
@@ -87,7 +61,7 @@ class Content extends Component {
   }
 
   sendSaved = (savedData) => {
-    console.log("the savedData is: ", savedData);
+    // console.log("the savedData is: ", savedData);
     this.setState({
       saved: [...this.state.saved, savedData],
       mode: "displaySaved",
@@ -113,72 +87,34 @@ class Content extends Component {
   }
 
   goToEdit = (id) => {
-    // console.log('in gotoedit')
     this.setState({
       mode: "displayEdit",
     });
     this.editingComponent(id);
   }
 
+  setSearchResults = (articles) => {
+    this.setState({
+      searchResults: articles
+    })
+  }
+
   render() {
     return (
       <div>
-        <nav>
-          <ul>
-            <li>Articles</li>
-            {this.state.user ? (
-              <Fragment>
-                <li>
-                  <button className="navButton" onClick={this.goToAccount}>
-                    {this.props.user.first_name}'s SAVED ARTICLES
-                  </button>
-                </li>
-                <li>
-                  <button className="navButton" onClick={this.goToNewArticle}>
-                    CREATE
-                  </button>
-                </li>
-                <li>
-                  <button className="navButton" onClick={this.props.logout}>
-                    LOG OUT
-                  </button>
-                </li>{" "}
-              </Fragment>
-            ) : null}
+        <Nav user={this.state.user} />
 
-            <li>
-              <button className="navButton" onClick={this.goToSearch}>
-                SEARCH
-              </button>
-            </li>
-          </ul>
-        </nav>
+        <Searchbar sendSearchResults={this.setSearchResults}/>
 
-        {this.state.mode === "displayForm" && (
-          <div>
-            <form className="searchForm" onSubmit={this.onSubmit}>
-              <input
-                type="text"
-                placeholder="ARTICLE KEYWORDS"
-                value={this.state.value}
-                onChange={this.handleChange}
-                className="searchFormBar"
-              />
-              <br />
-              <input className="searchButton" type="submit" value="SEARCH" />
-            </form>
-          </div>
-        )}
 
-        {this.state.mode === "displayResults" && (
-          <div>
-            <ArticlesView
-            //   userId={this.props.user.id}
-            //   sendSaved={this.sendSaved}
-			  allArticlesFound={this.state.results}
-            />
-          </div>
-        )}
+        {this.state.searchResults ? 
+          <ArticlesView
+          //   userId={this.props.user.id}
+          //   sendSaved={this.sendSaved}
+      allArticlesFound={this.state.searchResults}
+          />
+                  : ''}
+
 
         {/* {this.state.mode === "displaySaved" && (
           <div>
@@ -201,7 +137,7 @@ class Content extends Component {
 
         {this.state.mode === "displayEdit" && (
           <div>
-            <EditPage editArr={this.state.results} sendSaved={this.sendSaved} />
+            <EditPage editArr={this.state.searchResults} sendSaved={this.sendSaved} />
           </div>
 		)} */
 	
