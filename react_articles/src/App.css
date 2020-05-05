@@ -1,6 +1,12 @@
+* {
+  font-family: 'Jost', sans-serif;
+
+}
+
 body {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+   /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  */
+ 
+  /* font-weight: 300; */
   background: #EBF1F3;
 }
 section {
@@ -9,12 +15,12 @@ section {
 }
 
 nav {
-  background-color: white;
   width: 100vw;
-  height: 3em;
-  display: flex;
-  flex-direction: column;
-  font-size: 2em;
+}
+
+nav ul {
+  justify-content: flex-end;
+  margin-top: 1em;
 }
 
 h2 {
@@ -143,14 +149,18 @@ label {
 }
 
 .searchForm {
+  display: -ms-flexbox;
   display: flex;
-  margin-top: 80px;
-  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+  align-items: center;
+  -ms-flex-pack: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .searchFormBar {
-  width: 40%;
-  height: 40px;
+  border: none;
 }
 
 /*MAIN LANDING PAGE*/
@@ -271,18 +281,14 @@ span {
 }
 
 li {
-  display: block;
-/*  color: #E9E9E9;
-*/  font-size: 2em;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+
 }
 
 .navButton {
   cursor: pointer;
   border: none;
-  font-size: .3em;
+  font-size: 1em;
+  background: none;
 }
 
 .navButton:hover {
@@ -313,4 +319,8 @@ li {
 
 span {
   font-weight: bold;
+}
+
+#searchFormContainer {
+  display: flex;
 }

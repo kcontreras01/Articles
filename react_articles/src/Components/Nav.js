@@ -4,7 +4,6 @@ const Nav = ({user}) => {
     return (
         <nav>
           <ul>
-            <li>Articles</li>
             {user ? (
               <Fragment>
                 <li>
@@ -13,17 +12,23 @@ const Nav = ({user}) => {
                   </button>
                 </li>
                 <li>
-                  <button className="navButton" onClick={this.goToNewArticle}>
-                    CREATE
-                  </button>
-                </li>
-                <li>
                   <button className="navButton" onClick={this.props.logout}>
                     LOG OUT
                   </button>
                 </li>{" "}
               </Fragment>
-            ) : null}
+            ) : 
+          
+            <Fragment>
+            <li>
+              <button className="navButton">
+                LOG IN
+              </button>
+            </li>
+            </Fragment>
+          }
+
+            
           </ul>
         </nav>
     )

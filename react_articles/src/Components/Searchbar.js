@@ -30,15 +30,18 @@ class Searchbar extends Component {
     return (
       <Fragment>
         <form className="searchForm" onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="ARTICLE KEYWORDS"
-            value={this.state.searchTerm}
-            onChange={this.handleChange}
-            className="searchFormBar"
-          />
-          <br />
-          <input className="searchButton" type="submit" value="SEARCH" />
+          <label>NYT Article Search</label>
+
+          <div id="searchFormContainer">
+            <input
+              type="text"
+              placeholder="Search Articles by Keyword"
+              value={this.state.searchTerm}
+              onChange={this.handleChange}
+              className="searchFormBar"
+            />
+            <input className="searchButton" type="submit" value="SEARCH" />
+          </div>
         </form>
       </Fragment>
     );
