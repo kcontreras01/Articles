@@ -21,25 +21,6 @@ class Article extends Component {
         <div className="articleBox">
           <h2>{this.props.article.headline.main}</h2>
           <p>{this.props.article.snippet}</p>
-          <div className="articleButtons">
-            <button className="saveButton">
-              <a href={this.props.article.web_url} target="_blank">
-                LINK
-              </a>
-            </button>
-            <button
-              onClick={() =>
-                this.save(
-                  this.props.article.headline.main,
-                  this.props.article.snippet,
-                  this.props.article.web_url
-                )
-              }
-              className="saveButton"
-            >
-              SAVE
-            </button>
-          </div>
         </div>
       </section>
     );
@@ -47,3 +28,24 @@ class Article extends Component {
 }
 
 export default Article;
+
+
+// <div className="articleButtons">
+//             <button className="saveButton">
+//               <a href={this.props.article.web_url} target="_blank">
+//                 LINK
+//               </a>
+//             </button>
+//             <button
+//               onClick={() =>
+//                 this.save(
+//                   this.props.article.headline.main,
+//                   this.props.article.snippet,
+//                   this.props.article.web_url
+//                 )
+//               }
+//               className="saveButton"
+//             >
+//               SAVE
+//             </button>
+//           </div>

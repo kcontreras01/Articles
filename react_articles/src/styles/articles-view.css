@@ -1,0 +1,88 @@
+.button {
+  width: 6em;
+  height: 30px;
+  background-color: #80cbc4;
+  color: white;
+}
+
+.saveButton {
+  width: 6em;
+  height: 46px;
+  background-color: white;
+  margin-left: 10px;
+  color: #4db6ac;
+  font-size: 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.returnButton {
+  display: flex;
+  justify-content: center;
+  margin: 2.5em auto;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 300px) {
+    .showArticle {
+        background-color: #c9c3cc;
+        border-radius: 8px;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        width: 90vw;
+        height: 15em;
+      }
+      
+      .articleButtons {
+        display: flex;
+        padding-top: 1em;
+      }
+      
+      .articleBox {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1em;
+        overflow: scroll;
+      }
+      
+      .all {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 100vh;
+        overflow: scroll;
+        padding-top: 1em;
+      }
+
+
+      .saveButton {
+        width: 6em;
+        height: 46px;
+        background-color: white;
+        margin-left: 10px;
+        color: #4db6ac;
+        font-size: 2em;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .returnButton {
+        display: flex;
+        justify-content: center;
+        margin: 2.5em auto;
+      }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */

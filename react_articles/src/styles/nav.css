@@ -1,0 +1,33 @@
+nav {
+    width: 100vw;
+  }
+  
+  nav ul {
+    justify-content: flex-end;
+    margin-top: 1em;
+  }
+
+  /*NAV BAR*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+/*  background: #DAD4D7;
+*/}
+
+span {
+  color: #AC6C7E;
+}
+
+.navButton {
+  cursor: pointer;
+  border: none;
+  font-size: 1em;
+  background: none;
+}
+
+.navButton:hover {
+  color: grey;
+}

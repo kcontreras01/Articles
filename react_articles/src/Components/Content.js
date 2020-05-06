@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import ArticlesView from "./ArticlesView";
 import AccountPage from "./AccountPage";
-import AddPage from "./AddPage";
+// import AddPage from "./AddPage";
 import EditPage from "./EditPage";
 import Nav from './Nav';
 import axios from "axios";
