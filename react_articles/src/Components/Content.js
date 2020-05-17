@@ -1,8 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import ArticlesView from "./ArticlesView";
-import AccountPage from "./AccountPage";
-// import AddPage from "./AddPage";
-import EditPage from "./EditPage";
 import Nav from './Nav';
 import axios from "axios";
 import Searchbar from './Searchbar';
@@ -102,7 +99,6 @@ class Content extends Component {
   render() {
     return (
       <div>
-        <Nav user={this.state.user} />
 
         <Searchbar sendSearchResults={this.setSearchResults}/>
 

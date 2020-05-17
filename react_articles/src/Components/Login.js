@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-//import {TextLoop, Link, BodyText} from 'react-text-loop'
 import axios from 'axios';
+import Cookies from '../helpers/Cookies';
 
-// login component
-// this will render when the user auth mode is set to login
 class Login extends Component {
   constructor(){
     super();
-    // set default state
     this.state = {
-      // we have 2 inputs that we will be changing
       inputs: {
         email: '',
         password: ''
@@ -23,7 +19,7 @@ class Login extends Component {
   login(e){
     e.preventDefault(); // prevent default form action
     // send request to make sure the email and password are correct
-    axios.post(`${this.props.url}/login`, this.state.inputs)
+    axios.post('/login', this.state.inputs)
       .then(res => { // set the user based off of the response
         this.props.setUser(res.data);
       })
@@ -97,7 +93,7 @@ class Login extends Component {
 
           <div className="form-buttons">
             <button type="submit" className="login-form-button">Log In</button>
-            <button onClick={this.props.toggleMode} className="login-form-button">Sign Up</button>
+            
           </div>
         </form>
       </div>   
@@ -108,3 +104,5 @@ class Login extends Component {
   }
 }
 export default Login;
+
+

@@ -1,8 +1,17 @@
 import React, {Fragment} from 'react'
-import '../styles/nav.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
+import Login from './Login'
+import '../styles/nav.css'
 
 const Nav = ({user}) => {
     return (
+      <Router>
+        <div>
         <nav>
           <ul>
             {user ? (
@@ -22,9 +31,7 @@ const Nav = ({user}) => {
           
             <Fragment>
             <li>
-              <button className="navButton">
-                LOG IN
-              </button>
+              <Link exact="true" to="/login" className="navButton">LOG IN</Link>  
             </li>
             </Fragment>
           }
@@ -32,6 +39,14 @@ const Nav = ({user}) => {
             
           </ul>
         </nav>
+
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+        </div>
+        </Router>
     )
 }
 

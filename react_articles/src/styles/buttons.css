@@ -1,0 +1,23 @@
+.button {
+    width: 6em;
+    height: 30px;
+    background-color: #80cbc4;
+    color: white;
+}
+
+.saveButton {
+    width: 6em;
+    height: 46px;
+    background-color: white;
+    margin-left: 10px;
+    color: #4db6ac;
+    font-size: 2em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.returnButton {
+    display: flex;
+    justify-content: center;
+    margin: 2.5em auto;
+}

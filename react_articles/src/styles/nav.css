@@ -26,6 +26,8 @@ span {
   border: none;
   font-size: 1em;
   background: none;
+  text-decoration: none;
+  color: black;
 }
 
 .navButton:hover {
