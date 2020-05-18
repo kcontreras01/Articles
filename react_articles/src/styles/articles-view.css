@@ -19,7 +19,6 @@
       .articleBox {
         display: flex;
         flex-direction: column;
-        padding-left: 1em;
         overflow: scroll;
       }
       
@@ -48,6 +47,13 @@
         display: flex;
         justify-content: center;
         margin: 2.5em auto;
+      }
+
+      #loadingProgress {
+        display: flex;
+        justify-content: center;
+        height: 20vh;
+        align-items: center;
       }
 }
 

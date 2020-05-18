@@ -30,7 +30,11 @@ class Content extends Component {
       <div>
         <Searchbar sendSearchResults={this.setSearchResults} sendIsLoading={this.setIsLoading}/>
 
-        {this.state.isLoading && <CircularProgress/>}
+        {this.state.isLoading && 
+          <div id="loadingProgress">
+            <CircularProgress />
+          </div>
+        }
         
         {this.state.searchResults && <ArticlesView allArticlesFound={this.state.searchResults} />}
       </div>
