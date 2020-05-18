@@ -23,6 +23,8 @@
   
   .searchFormBar {
     border: none;
+    width: 100%;
+
   }
 
 
@@ -30,9 +32,7 @@ form input[type="text"] {
     font-size: 24px;
   }
   
-  #searchFormContainer {
-    display: flex;
-  }
+
 
   label {
     font-size: 2em;
@@ -40,3 +40,20 @@ form input[type="text"] {
     padding-top: .5em;
     text-align: left;
   }
+
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .searchButton {
+    display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #searchFormContainer {
+    display: flex;
+  }
+}

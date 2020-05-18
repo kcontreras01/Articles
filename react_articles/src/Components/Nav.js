@@ -1,17 +1,14 @@
-import React, {Fragment} from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom"
-import Login from './Login'
-import '../styles/nav.css'
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "../styles/nav.css";
+import Content from "./Content";
+import Login from "./Login";
+import SignUp from "./Signup";
 
-const Nav = ({user}) => {
-    return (
-      <Router>
-        <div>
+const Nav = ({ user }) => {
+  return (
+    <Router>
+      <div>
         <nav>
           <ul>
             {user ? (
@@ -27,16 +24,19 @@ const Nav = ({user}) => {
                   </button>
                 </li>{" "}
               </Fragment>
-            ) : 
-          
-            <Fragment>
-            <li>
-              <Link exact="true" to="/login" className="navButton">LOG IN</Link>  
-            </li>
-            </Fragment>
-          }
-
-            
+            ) : (
+              <Fragment>
+                <li>
+                  <Link to="/">HOME</Link>
+                </li>
+                <li>
+                  <Link to="/login">LOGIN</Link>
+                </li>
+                <li>
+                  <Link to="/signup">SIGNUP</Link>
+                </li>
+              </Fragment>
+            )}
           </ul>
         </nav>
 
@@ -44,10 +44,16 @@ const Nav = ({user}) => {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/">
+            <Content />
+          </Route>
         </Switch>
-        </div>
-        </Router>
-    )
-}
+      </div>
+    </Router>
+  );
+};
 
 export default Nav;

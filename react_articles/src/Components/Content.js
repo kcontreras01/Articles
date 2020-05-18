@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ArticlesView from "./ArticlesView";
-import Nav from './Nav';
 import axios from "axios";
 import Searchbar from './Searchbar';
 

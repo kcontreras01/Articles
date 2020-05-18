@@ -2,6 +2,12 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 import '../styles/searchbar.css';
 
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
+
+
 class Searchbar extends Component {
   constructor() {
     super();
@@ -32,14 +38,21 @@ class Searchbar extends Component {
       <Fragment>
         <form className="searchForm" onSubmit={this.onSubmit}>
           <label>NYT Article Search</label>
-
-          <div id="searchFormContainer">
-            <input
-              type="text"
-              placeholder="Search Articles by Keyword"
+          <div id="searchFormContainer"
+          >
+            <TextField
+              label="Search Articles by Keyword"
               value={this.state.searchTerm}
               onChange={this.handleChange}
-              className="searchFormBar"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment>
+                    <IconButton>
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
             />
             <input className="searchButton" type="submit" value="SEARCH" />
           </div>

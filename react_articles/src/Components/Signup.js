@@ -22,7 +22,7 @@ class SignUp extends Component {
   signUp(e){
     e.preventDefault(); // prevent default form action
     // make request to server to create a new user
-    axios.post(`${this.props.url}/users`, this.state.inputs)
+    axios.post('http://localhost:8080/users', this.state.inputs)
       .then(res => { // the response will be the user
         // set the user
         this.props.setUser(res.data);
@@ -82,7 +82,7 @@ class SignUp extends Component {
 
           <div className="signUp-form-buttons">
             <button type="submit" className="signup-form-button">Sign Up</button>
-            <button onClick={this.props.toggleMode} className="signup-form-button">Back to Log In</button>
+            <button className="signup-form-button">Back to Log In</button>
           </div>
 
         </form>
