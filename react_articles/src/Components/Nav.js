@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 import "../styles/nav.css";
+import "../styles/content.css";
 import Content from "./Content";
 import Login from "./Login";
 import SignUp from "./Signup";
@@ -27,13 +28,15 @@ const Nav = ({ user }) => {
             ) : (
               <Fragment>
                 <li>
-                  <Link to="/">HOME</Link>
+                  <NavLink exact={true} activeClassName='is-active' to='/'>HOME</NavLink>
                 </li>
                 <li>
-                  <Link to="/login">LOGIN</Link>
+                  <NavLink activeClassName='is-active' to='/login'>LOGIN</NavLink>
+
                 </li>
                 <li>
-                  <Link to="/signup">SIGNUP</Link>
+                  <NavLink activeClassName='is-active' to='/signup'>SIGN UP</NavLink>
+
                 </li>
               </Fragment>
             )}
@@ -42,13 +45,19 @@ const Nav = ({ user }) => {
 
         <Switch>
           <Route path="/login">
-            <Login />
+            <section>
+              <Login />
+            </section>
           </Route>
           <Route path="/signup">
-            <SignUp />
+            <section>
+              <SignUp />
+            </section>
           </Route>
           <Route path="/">
-            <Content />
+            <section>
+              <Content />
+            </section>
           </Route>
         </Switch>
       </div>

@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Cookies from '../helpers/Cookies';
+import '../styles/login.css';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 class Login extends Component {
   constructor(){
@@ -70,39 +78,57 @@ class Login extends Component {
 
   render(){
     return(
-      <div>
-      <div className='loginBackground'>
-      </div>
-      <section>
-      <div className="auth-form">
-
-        <div className='loginHead'><h1>Articles</h1></div>
-
-        <form className='loginForm' onSubmit={this.login.bind(this)}>
-          <label htmlFor='email'>EMAIL:</label>
-          <input placeholder="JohnSmith@js.com" className='searchBar' value={this.state.inputs.email}
-            id='email' name='email' type='email'
+        <form>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
             onChange={e => this.changeInput(e, 'email')}
           />
-
-          <label htmlFor='password'>PASSWORD:</label>
-          <input placeholder="**********" className='searchBar' value={this.state.inputs.password}
-            id='password' name='password' type='password'
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
             onChange={e => this.changeInput(e, 'password')}
           />
-
-          <div className="form-buttons">
-            <button type="submit" className="login-form-button">Log In</button>
-            
-          </div>
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="default"
+          >
+            Login
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="/signup" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
         </form>
-      </div>   
-      </section>
-      <footer>footer</footer>
-      </div>
     )
   }
 }
 export default Login;
-
-

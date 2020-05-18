@@ -1,3 +1,11 @@
-main {
-    
+section {
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 90%;
+    margin: auto;
+    align-items: center;
+    -ms-flex-pack: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 2em;
 }

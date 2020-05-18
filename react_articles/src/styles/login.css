@@ -1,0 +1,10 @@
+@media only screen and (max-width: 600px) {
+    .loginForm {
+        /* margin: 1em; */
+    }
+
+    .MuiGrid-container {
+        flex-direction: column;    
+        margin-top: 1em;
+    }
+}

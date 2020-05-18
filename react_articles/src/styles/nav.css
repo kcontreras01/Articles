@@ -1,21 +1,18 @@
 nav {
     width: 100vw;
-  }
+}
   
-  nav ul {
-    justify-content: flex-end;
-    margin-top: 1em;
-  }
-
-  /*NAV BAR*/
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   display: flex;
-/*  background: #DAD4D7;
-*/}
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black
+}
 
 span {
   color: #AC6C7E;
@@ -32,4 +29,17 @@ span {
 
 .navButton:hover {
   color: grey;
+}
+
+.is-active {
+  color: #AC6C7E;
+}
+
+@media only screen and (max-width: 600px) {
+  nav ul {
+    justify-content: space-evenly;
+    margin-top: 1em;
+  }  
+
+
 }
