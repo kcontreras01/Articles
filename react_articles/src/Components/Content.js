@@ -9,14 +9,15 @@ class Content extends Component {
 
     this.state = {
       searchResults: [],
-      isLoading: false
+      isLoading: false,
+      errorMessage: ''
     };
   }
 
   setSearchResults = (articles) => {
     this.setState({
-      searchResults: articles,
-    });
+        searchResults: articles,
+      });
   };
 
   setIsLoading = (bool) => {
@@ -25,11 +26,19 @@ class Content extends Component {
     });
   };
 
+  setErrorMessage = (err) => {
+    this.setState({
+      errorMessage: err
+    })
+  }
+
   render() {
     return (
       <div>
-        <Searchbar sendSearchResults={this.setSearchResults} sendIsLoading={this.setIsLoading}/>
-
+        <Searchbar sendSearchResults={this.setSearchResults} sendIsLoading={this.setIsLoading} sendErrorMessage={this.setErrorMessage}/>
+        
+        {this.state.errorMessage && <h2 id="errorMessage">{this.state.errorMessage}</h2>}
+        
         {this.state.isLoading && 
           <div id="loadingProgress">
             <CircularProgress />

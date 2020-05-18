@@ -27,12 +27,21 @@ class Searchbar extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.sendIsLoading(true);
+    this.props.sendSearchResults([])
+    this.props.sendErrorMessage('');
 
     axios
       .get(`http://localhost:8080/articles/${this.state.searchTerm}`)
       .then((response) => {
         this.props.sendSearchResults(response.data);
+
+        if (response.data.length == 0) {
+          this.props.sendErrorMessage('No results found');
+        }
+
         this.props.sendIsLoading(false);
+      }).catch(err => {
+        this.props.setErrorMessage(err)
       });
   };
 

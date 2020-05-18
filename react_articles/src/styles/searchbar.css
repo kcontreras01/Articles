@@ -46,6 +46,12 @@ form input[type="text"] {
   .searchButton {
     display: none;
   }
+
+  #errorMessage {
+    max-width: 90%;
+    margin: auto;
+    padding-top: 1em;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
