@@ -26,10 +26,13 @@ class Searchbar extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    this.props.sendIsLoading(true);
+
     axios
       .get(`http://localhost:8080/articles/${this.state.searchTerm}`)
       .then((response) => {
         this.props.sendSearchResults(response.data);
+        this.props.sendIsLoading(false);
       });
   };
 
