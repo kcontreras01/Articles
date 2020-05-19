@@ -1,0 +1,65 @@
+.searchButton {
+  width: 6em;
+  height: 46px;
+  background-color: #4db6ac;
+  margin-left: 10px;
+  color: white;
+  font-size: 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchForm {
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  align-items: center;
+  -ms-flex-pack: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.searchFormBar {
+  border: none;
+  width: 100%;
+}
+
+form input[type="text"] {
+  font-size: 24px;
+}
+
+label {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  text-align: left;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .searchButton {
+    display: none;
+  }
+
+  #errorMessage {
+    max-width: 90%;
+    margin: auto;
+    padding-top: 1em;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 769) {
+  #errorMessage {
+    justify-content: center;
+    display: flex;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #searchFormContainer {
+    display: flex;
+  }
+}
