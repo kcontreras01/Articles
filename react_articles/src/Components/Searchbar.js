@@ -35,7 +35,7 @@ class Searchbar extends Component {
       .then((response) => {
         this.props.sendSearchResults(response.data);
 
-        if (response.data.length == 0) {
+        if (response.data.length === 0) {
           this.props.sendErrorMessage('No results found');
         }
 
@@ -59,14 +59,13 @@ class Searchbar extends Component {
               InputProps={{
                 endAdornment: (
                   <InputAdornment>
-                    <IconButton>
+                    <IconButton type="submit">
                       <SearchIcon />
                     </IconButton>
                   </InputAdornment>
                 )
               }}
             />
-            <input className="searchButton" type="submit" value="SEARCH" />
           </div>
         </form>
       </Fragment>

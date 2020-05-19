@@ -4,7 +4,7 @@ import '../styles/articles-view.css';
 
 const ArticlesView = ({ allArticlesFound }) => {
   return (
-    <div className="all">
+    <div className="allArticles">
       {allArticlesFound.map((article) => {
         return (
           <Article article={article} key={article._id}/>

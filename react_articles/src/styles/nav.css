@@ -40,6 +40,15 @@ span {
     justify-content: space-evenly;
     margin-top: 1em;
   }  
+}
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  nav ul {
+    justify-content: flex-end;
+  }
 
+  nav ul li {
+    padding: 5px;
+  }
 }

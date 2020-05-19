@@ -1,28 +1,26 @@
+.showArticle {
+  background-color: #c9c3cc;
+  border-radius: 8px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  width: 90vw;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 300px) {
     .showArticle {
-        background-color: #c9c3cc;
-        border-radius: 8px;
-        margin: 10px auto;
-        display: flex;
-        flex-direction: row;
-        padding: 10px;
-        width: 90vw;
         height: 15em;
       }
-      
-      .articleButtons {
-        display: flex;
-        padding-top: 1em;
-      }
-      
+
       .articleBox {
         display: flex;
         flex-direction: column;
         overflow: scroll;
       }
       
-      .all {
+      .allArticles {
         display: flex;
         flex-wrap: wrap;
         width: 100vw;
@@ -30,7 +28,6 @@
         overflow: scroll;
         padding-top: 1em;
       }
-
 
       .saveButton {
         width: 6em;
@@ -58,7 +55,11 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...} */
+@media only screen and (min-width: 600px) {
+  .showArticle {
+    height: 10em
+  }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* @media only screen and (min-width: 768px) {...} */
