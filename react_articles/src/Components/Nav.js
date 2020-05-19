@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import "../styles/nav.css";
-import "../styles/content.css";
 import Content from "./Content";
 import Login from "./Login";
 import SignUp from "./Signup";
