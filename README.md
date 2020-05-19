@@ -19,7 +19,7 @@ Using your terminal, `cd` in to your favorite folder
 
 Run `git clone https://github.com/kcontreras01/ReactArticles.git`
 
-Once the project is cloned, run `cd ReactArticles/react_articles`
+Once the project is cloned, run `cd ReactArticles`
 
 Run `npm install`
 
